@@ -35,21 +35,21 @@ fund = "???"
 [integration]
 yunohost = ">= 12.1.17"
 helpers_version = "2.1"
-# FIXME: can be replaced by a list of supported archs using the dpkg --print-architecture nomenclature (amd64/i386/armhf/arm64), for example: ["amd64", "i386"]
+# can be replaced by a list of supported archs using the dpkg --print-architecture nomenclature (amd64/i386/armhf/arm64), for example: ["amd64", "i386"]
 architectures = "all"
 multi_instance = true
 
-# FIXME: replace with true, false, or "not_relevant".
+# replace with true, false, or "not_relevant".
 # Not to confuse with the "sso" key: the "ldap" key corresponds to wether or not a user *can* login on the app using
 # its YunoHost credentials.
 ldap = "not_relevant"
 
-# FIXME: replace with true, false, or "not_relevant".
+# replace with true, false, or "not_relevant".
 # Not to confuse with the "ldap" key: the "sso" key corresponds to wether or not a user is *automatically logged-in*
 # on the app when logged-in on the YunoHost portal.
 sso = "not_relevant"
 
-# FIXME: replace with an **estimate** minimum disk and RAM requirements. e.g. 20M, 400M, 1G...
+# replace with an **estimate** minimum disk and RAM requirements. e.g. 20M, 400M, 1G...
 disk = "50M"
 ram.build = "50M"
 ram.runtime = "50M"
@@ -62,31 +62,13 @@ ram.runtime = "50M"
     [install.path]
     # this is a generic question - ask strings are automatically handled by YunoHost's core
     type = "path"
-    default = "/example"
+    default = "/mindustry-server"
 
     [install.init_main_permission]
     # this is a generic question - ask strings are automatically handled by YunoHost's core
     # This won't be saved as setting and will instead be used to initialize the SSOwat permission
     type = "group"
     default = "visitors"
-
-    [install.language]
-    ask.en = "Choose the application language"
-    ask.fr = "Choisissez la langue de l'application"
-    type = "select"
-    choices = ["fr", "en"]
-    default = "fr"
-
-    [install.admin]
-    # this is a generic question - ask strings are automatically handled by YunoHost's core
-    type = "user"
-
-    [install.password]
-    # this is a generic question - ask strings are automatically handled by YunoHost's core
-    # Note that user-provided passwords questions are not automatically saved as setting
-    help.en = "Use the help field to add an information for the admin about this question."
-    help.fr = "Utilisez le champ aide pour ajouter une information à l'intention de l'administrateur à propos de cette question."
-    type = "password"
 
 [resources]
     # See the packaging documentation for the full set
