@@ -98,15 +98,25 @@ ram.runtime = "50M"
     # This will pre-fetch the asset which can then be deployed during the install/upgrade scripts with :
     #    ynh_setup_source --dest_dir="$install_dir"
     # You can also define other assets than "main" and add --source_id="foobar" in the previous command
-    url = "https://github.com/foo/bar/archive/refs/tags/v1.2.3.tar.gz"
-    sha256 = "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+    url = "https://github.com/Anuken/Mindustry/releases/download/v159.7/server-release.jar"
+    sha256 = "e41289c32bcf765eb50fa131e6b515d741e20f7843fb567d3aa949e7461f22ab"
+    in_subdir = false
+    format = "jar"
+    rename = "mindustry-server"
 
     # These infos are used by https://github.com/YunoHost/apps_tools/blob/main/autoupdate_app_sources/autoupdate_app_sources.py
     # to auto-update the previous asset urls and sha256sum + manifest version
     # assuming the upstream's code repo is on github and relies on tags or releases
     # See the 'sources' resource documentation for more details
 
-    # autoupdate.strategy = "latest_github_tag"
+    autoupdate.strategy = "latest_github_tag"
+
+    [resources.sources.158]
+    url = "https://github.com/Anuken/Mindustry/releases/download/v158.1/server-release.jar"
+    sha256 = "d147b683198088598c2c6ea9b3a6d36e06863008525f8423eddb6b0eb0da6ac9"
+    in_subdir = false
+    format = "jar"
+    rename = "mindustry-server"
 
     [resources.system_user]
     # This will provision/deprovision a unix system user
@@ -126,12 +136,14 @@ ram.runtime = "50M"
 
     [resources.ports]
     # This will pick a random port for reverse-proxying and store it as the $port setting
+    main.default = 6567
+    main.exposed = "Both"
 
     [resources.apt]
     # This will automatically install/uninstall the following apt packages
     # and implicitly define the $phpversion setting as 8.0 (if phpX.Y-foobar dependencies are listed)
-    packages = "mariadb-server, deb1, deb2, php8.3-foo, php8.3-bar"
+    packages = "openjdk-17-jre"
 
-    [resources.database]
-    # This will automatically provision/deprovison a MySQL DB and store the corresponding credentials in settings $db_user, $db_name, $db_pwd
-    type = "mysql"
+    # [resources.database]
+    # # This will automatically provision/deprovison a MySQL DB and store the corresponding credentials in settings $db_user, $db_name, $db_pwd
+    # type = "mysql"
