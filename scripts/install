@@ -32,11 +32,11 @@ source /usr/share/yunohost/helpers
 
 # If you need to, you can define custom settings
 # (or remove this section entirely if not relevant for you)
-foo="bar"
-ynh_app_setting_set --key=foo --value=$foo
+# foo="bar"
+# ynh_app_setting_set --key=foo --value=$foo
 
-ynh_app_setting_set --key=php_upload_max_filesize --value=50M
-ynh_app_setting_set --key=php_post_max_size --value=50M
+# ynh_app_setting_set --key=php_upload_max_filesize --value=50M
+# ynh_app_setting_set --key=php_post_max_size --value=50M
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -77,7 +77,7 @@ ynh_config_add --template="some_config_file" --destination="$install_dir/some_co
 # FIXME: this should be handled by the core in the future
 ### You may need to use chmod 600 instead of 400,
 ### for example if the app is expected to be able to modify its own config
-chmod 400 "$install_dir/some_config_file"
+chmod 600 "$install_dir/some_config_file"
 chown "$app:$app" "$install_dir/some_config_file"
 
 ### For more complex cases where you want to replace stuff using regexes,
@@ -102,9 +102,6 @@ ynh_script_progression "Adding system configurations related to $app..."
 ###   - As well as the section "RESTORE THE PHP-FPM CONFIGURATION" in the restore script
 ###     with the reload at the end of the script.
 ###   - And the section "PHP-FPM CONFIGURATION" in the upgrade script
-
-# Create a PHP-FPM config (with conf/extra_php-fpm.conf being appended to it)
-ynh_config_add_phpfpm
 
 # Create a dedicated NGINX config using the conf/nginx.conf template
 ynh_config_add_nginx
