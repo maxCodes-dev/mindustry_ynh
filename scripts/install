@@ -80,7 +80,7 @@ ynh_script_progression "Adding $app's configuration files..."
 # chmod 600 "$install_dir/some_config_file"
 # chown "$app:$app" "$install_dir/some_config_file"
 
-link -s "$install_dir/config" "$data_dir"
+ln -s "$install_dir/config" "$data_dir"
 
 ### For more complex cases where you want to replace stuff using regexes,
 ### you shoud rely on ynh_replace (which is basically a wrapper for sed)
