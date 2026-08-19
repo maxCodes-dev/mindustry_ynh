@@ -72,13 +72,15 @@ ynh_script_progression "Adding $app's configuration files..."
 ###
 ### Check the documentation of `ynh_config_add` for more info.
 
-ynh_config_add --template="some_config_file" --destination="$install_dir/some_config_file"
+# ynh_config_add --template="some_config_file" --destination="$install_dir/some_config_file"
 
 # FIXME: this should be handled by the core in the future
 ### You may need to use chmod 600 instead of 400,
 ### for example if the app is expected to be able to modify its own config
-chmod 600 "$install_dir/some_config_file"
-chown "$app:$app" "$install_dir/some_config_file"
+# chmod 600 "$install_dir/some_config_file"
+# chown "$app:$app" "$install_dir/some_config_file"
+
+link -s "$install_dir/config" "$data_dir"
 
 ### For more complex cases where you want to replace stuff using regexes,
 ### you shoud rely on ynh_replace (which is basically a wrapper for sed)
@@ -144,7 +146,7 @@ ynh_config_add_systemd
 ### to proceed if you later realize that you need to enable some flags that
 ### weren't enabled on old installs (be careful it'll override the existing
 ### service though so you should re-provide all relevant flags when doing so)
-yunohost service add "$app" --description="A short description of the app" --log="/var/log/$app/$app.log"
+yunohost service add "$app" --description="Mindustry dedicated server for Yunohost" --log="/var/log/$app/$app.log"
 
 ### `ynh_config_add_logrotate` is used to configure a logrotate configuration for the logs of this app.
 ### Use this helper only if there is effectively a log file for this app.
@@ -169,9 +171,9 @@ ynh_config_add_fail2ban --logpath="/var/log/nginx/${domain}-error.log" --failreg
 ### so we're going to use curl to automatically fill the fields and submit the
 ### forms.
 
-# Installation with curl
-ynh_script_progression "Finalizing installation..."
-ynh_local_curl "/INSTALL_PATH" "key1=value1" "key2=value2" "key3=value3"
+# # Installation with curl
+# ynh_script_progression "Finalizing installation..."
+# ynh_local_curl "/INSTALL_PATH" "key1=value1" "key2=value2" "key3=value3"
 
 #=================================================
 # START SYSTEMD SERVICE

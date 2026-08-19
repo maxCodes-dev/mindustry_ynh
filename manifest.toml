@@ -59,17 +59,6 @@ ram.runtime = "50M"
     # this is a generic question - ask strings are automatically handled by YunoHost's core
     type = "domain"
 
-    [install.path]
-    # this is a generic question - ask strings are automatically handled by YunoHost's core
-    type = "path"
-    default = "/mindustry-server"
-
-    [install.init_main_permission]
-    # this is a generic question - ask strings are automatically handled by YunoHost's core
-    # This won't be saved as setting and will instead be used to initialize the SSOwat permission
-    type = "group"
-    default = "visitors"
-
 [resources]
     # See the packaging documentation for the full set
     # of explanation regarding the behavior and properties for each of those
@@ -84,7 +73,7 @@ ram.runtime = "50M"
     sha256 = "e41289c32bcf765eb50fa131e6b515d741e20f7843fb567d3aa949e7461f22ab"
     in_subdir = false
     format = "jar"
-    rename = "mindustry-server"
+    rename = "server.jar"
 
     # These infos are used by https://github.com/YunoHost/apps_tools/blob/main/autoupdate_app_sources/autoupdate_app_sources.py
     # to auto-update the previous asset urls and sha256sum + manifest version
@@ -98,7 +87,7 @@ ram.runtime = "50M"
     sha256 = "d147b683198088598c2c6ea9b3a6d36e06863008525f8423eddb6b0eb0da6ac9"
     in_subdir = false
     format = "jar"
-    rename = "mindustry-server"
+    rename = "server.jar"
 
     [resources.system_user]
     # This will provision/deprovision a unix system user
