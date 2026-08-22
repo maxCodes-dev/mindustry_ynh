@@ -74,6 +74,7 @@ ram.runtime = "50M"
     in_subdir = false
     format = "jar"
     rename = "server.jar"
+    extract = false
 
     # These infos are used by https://github.com/YunoHost/apps_tools/blob/main/autoupdate_app_sources/autoupdate_app_sources.py
     # to auto-update the previous asset urls and sha256sum + manifest version
