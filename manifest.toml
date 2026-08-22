@@ -82,13 +82,6 @@ ram.runtime = "50M"
 
     autoupdate.strategy = "latest_github_tag"
 
-    [resources.sources.158]
-    url = "https://github.com/Anuken/Mindustry/releases/download/v158.1/server-release.jar"
-    sha256 = "d147b683198088598c2c6ea9b3a6d36e06863008525f8423eddb6b0eb0da6ac9"
-    in_subdir = false
-    format = "jar"
-    rename = "server.jar"
-
     [resources.system_user]
     # This will provision/deprovision a unix system user
 
